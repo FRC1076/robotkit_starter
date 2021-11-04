@@ -13,8 +13,7 @@ RIGHT_HAND = 1
 
 class MyRobot(pikitlib.TimedRobot):
     def robotInit(self):
-        """Robot initialization function"""
-        # object that handles basic drive operations
+
         self.leftBackMotor = pikitlib.SpeedController(robotmap.BACK_LEFT)
         self.leftFrontMotor = pikitlib.SpeedController(robotmap.FRONT_LEFT)
         self.rightBackMotor = pikitlib.SpeedController(robotmap.BACK_RIGHT)
@@ -24,15 +23,11 @@ class MyRobot(pikitlib.TimedRobot):
         self.right = pikitlib.SpeedControllerGroup(self.rightBackMotor, self.rightFrontMotor )
 
         self.myRobot = pikitlib.DifferentialDrive(self.left, self.right)
-        # self.myRobot.setExpiration(0.1)
 
         self.DEADZONE = 0.4
 
-        #self.buzz = pikitlib.IllegalBuzzer()
-
         NetworkTables.initialize()
         self.driver = pikitlib.XboxController(0)
-        print("robot has been initialized")
 
     def autonomousInit(self):
         pass
